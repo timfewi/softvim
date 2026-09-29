@@ -1,0 +1,49 @@
+name: Windows
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: ilammy/msvc-dev-cmd@0b201ec74fa43914dc39ae48a89fd1d8cb592756 # v1
+      - name: Install native editor tools
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $tools = Join-Path $env:RUNNER_TEMP 'softvim-tools'
+          New-Item -ItemType Directory -Path $tools | Out-Null
+          $releases = @(
+            @{ Repo = 'neovim/neovim'; Tag = 'v0.12.5'; Asset = 'nvim-win64.zip'; Folder = 'nvim'; Bin = 'nvim-win64/bin' },
+            @{ Repo = 'JohnnyMorganz/StyLua'; Tag = 'v2.5.2'; Asset = 'stylua-windows-x86_64.zip'; Folder = 'stylua'; Bin = '.' },
+            @{ Repo = 'LuaLS/lua-language-server'; Tag = '3.19.1'; Asset = 'lua-language-server-3.19.1-win32-x64.zip'; Folder = 'luals'; Bin = 'bin' },
+            @{ Repo = 'tree-sitter/tree-sitter'; Tag = 'v0.27.0'; Asset = 'tree-sitter-cli-windows-x64.zip'; Folder = 'tree-sitter'; Bin = '.' },
+            @{ Repo = 'BurntSushi/ripgrep'; Tag = '15.2.0'; Asset = 'ripgrep-15.2.0-x86_64-pc-windows-msvc.zip'; Folder = 'ripgrep'; Bin = 'ripgrep-15.2.0-x86_64-pc-windows-msvc' },
+            @{ Repo = 'sharkdp/fd'; Tag = 'v10.5.0'; Asset = 'fd-v10.5.0-x86_64-pc-windows-msvc.zip'; Folder = 'fd'; Bin = 'fd-v10.5.0-x86_64-pc-windows-msvc' }
+          )
+          foreach ($release in $releases) {
+            gh release download $release.Tag --repo $release.Repo --pattern $release.Asset --dir $tools
+            if ($LASTEXITCODE -ne 0) { throw "Download failed: $($release.Repo)" }
+            $folder = Join-Path $tools $release.Folder
+            Expand-Archive -LiteralPath (Join-Path $tools $release.Asset) -DestinationPath $folder
+            Join-Path $folder $release.Bin | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+          }
+      - name: Test installer with Windows PowerShell 5.1
+        shell: powershell
+        run: .\checks\install.ps1
+      - name: Test fresh native installation and runtime
+        run: .\checks\windows.ps1

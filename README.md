@@ -4,6 +4,8 @@ A native Windows Neovim configuration mirroring the portable NixVim editor in
 `dotfiles`. It includes the same Space leader, editor options, mappings, plugin
 settings, language-server preferences, formatters, syntax languages, and four
 dark/light palettes. Windows runs plain Lua; Nix is only a development tool.
+All runtime configuration is included in this repository. You do not need the
+original laptop, its dotfiles checkout, Nix, or a GitHub account to use Softvim.
 
 ## Windows installation
 
@@ -34,12 +36,18 @@ Restart the terminal after installing tools. Use Windows Terminal with
 terminal profile. The editor keeps transparent backgrounds, so the terminal
 controls their underlying color.
 
-Extract `softvim-windows.zip`, open PowerShell in the extracted directory, and run:
+Clone this public repository over HTTPS, then install from PowerShell:
 
 ```powershell
+git clone https://github.com/timfewi/softvim.git
+Set-Location softvim
 powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 nvim
 ```
+
+If Git is unavailable, download and extract the repository's ZIP from GitHub's
+**Code > Download ZIP** menu, open PowerShell in that directory, and run the
+same installer. Installation works from a directory with spaces in its name.
 
 The script copies `nvim/` into `%LOCALAPPDATA%\nvim`. It backs up an existing
 configuration beside it as `nvim.backup-<timestamp>-<id>` and preserves
@@ -64,6 +72,19 @@ nvim
 If you already set `NVIM_APPNAME`, pass the matching name to the installer.
 Close Neovim before upgrading or restoring a backup. Restore by moving the new
 config directory aside and renaming the selected backup to its original name.
+
+To update later, open PowerShell in your clone with Neovim closed:
+
+```powershell
+git pull --ff-only
+powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+Use the same `-AppName` on updates if you chose a separate installation. Keep
+personal overrides in the installed `local.lua`; the installer preserves them.
+Plugin and language-tool downloads need internet access to GitHub, the Mason
+registry, and the relevant package registries. Follow your workplace's software
+installation and network policies if those downloads are restricted.
 
 ## What matches
 
@@ -167,3 +188,13 @@ behavior require verification on Windows. A live Mason registry fetch failed
 at the GitHub API in this development environment; its failure and retry path
 is tested separately. The live language-server check uses the installed Lua
 server, rather than claiming that a blocked Mason download succeeded.
+
+The GitHub Actions Windows job starts from a fresh checkout, tests the installer
+in both Windows PowerShell and PowerShell 7, loads the locked plugins, builds
+the native sorter and a Lua parser, and exercises the tree shortcut,
+format-on-save, and a live Lua language server. It uses isolated test
+directories, with no original dotfiles or Nix toolchain. Rendering, clipboard,
+and interactive terminal behavior still need a manual check on Windows.
+
+On Windows with the prerequisites, StyLua, and Lua Language Server on PATH,
+run the same checks with `pwsh -NoProfile -File .\checks\windows.ps1`.

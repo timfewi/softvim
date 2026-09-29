@@ -5,3 +5,8 @@ __pycache__/
 nvim/lua/softvim/local.lua
 .test-runtime/
 *.zip
+.env
+.env.*
+*.pem
+*.key
+*.log

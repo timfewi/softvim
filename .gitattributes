@@ -1,0 +1,7 @@
+* text=auto
+*.lua text eol=lf
+*.json text eol=lf
+*.nix text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+*.yml text eol=lf

@@ -1,4 +1,5 @@
 local function run()
+  local project_root = vim.fn.getcwd()
   assert(vim.v.errmsg == "", "Startup error: " .. vim.v.errmsg)
   assert(#(_G.softvim_errors or {}) == 0, table.concat(_G.softvim_errors or {}, "\n"))
   local lazy = require("lazy.core.config").plugins
@@ -84,6 +85,7 @@ local function run()
     client:stop(true)
   end
   vim.fn.delete(scratch, "rf")
+  vim.cmd("cd " .. vim.fn.fnameescape(project_root))
   -- Check final highlight groups with all plugins loaded as well.
   dofile("checks/core.lua")
   assert(#(_G.softvim_errors or {}) == 0, table.concat(_G.softvim_errors or {}, "\n"))
