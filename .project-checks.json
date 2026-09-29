@@ -1,0 +1,204 @@
+{
+  "version": 1,
+  "checks": [
+    {
+      "name": "deadnix",
+      "argv": [
+        "deadnix",
+        "--fail",
+        "flake.nix",
+        "scripts/export-dotfiles.nix"
+      ],
+      "requires": [
+        "deadnix"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "statix",
+      "argv": [
+        "statix",
+        "check",
+        "."
+      ],
+      "requires": [
+        "statix"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "nix-format",
+      "argv": [
+        "nixfmt",
+        "--check",
+        "flake.nix",
+        "scripts/export-dotfiles.nix"
+      ],
+      "requires": [
+        "nixfmt"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "lua-format",
+      "argv": [
+        "stylua",
+        "--check",
+        "nvim",
+        "checks"
+      ],
+      "requires": [
+        "stylua"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "lua-lint",
+      "argv": [
+        "luacheck",
+        "nvim",
+        "checks"
+      ],
+      "requires": [
+        "luacheck"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "shell-lint",
+      "argv": [
+        "shellcheck",
+        "scripts/sync-dotfiles.sh",
+        "scripts/test-runtime.sh"
+      ],
+      "requires": [
+        "shellcheck"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "editor-core",
+      "argv": [
+        "nvim",
+        "--headless",
+        "-u",
+        "NONE",
+        "-l",
+        "checks/core.lua"
+      ],
+      "requires": [
+        "nvim"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "tool-installer",
+      "argv": [
+        "nvim",
+        "--headless",
+        "-u",
+        "NONE",
+        "-l",
+        "checks/tools.lua"
+      ],
+      "requires": [
+        "nvim"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "windows-installer",
+      "argv": [
+        "pwsh",
+        "-NoLogo",
+        "-NoProfile",
+        "-File",
+        "checks/install.ps1"
+      ],
+      "requires": [
+        "pwsh"
+      ],
+      "timeout_seconds": 30,
+      "profiles": [
+        "fast",
+        "full"
+      ]
+    },
+    {
+      "name": "editor-runtime",
+      "argv": [
+        "bash",
+        "scripts/test-runtime.sh"
+      ],
+      "requires": [
+        "bash",
+        "nvim",
+        "git",
+        "cmake",
+        "cc",
+        "rg",
+        "stylua",
+        "lua-language-server"
+      ],
+      "timeout_seconds": 180,
+      "profiles": [
+        "full"
+      ]
+    },
+    {
+      "name": "flake-check",
+      "argv": [
+        "nix",
+        "flake",
+        "check",
+        "--no-write-lock-file",
+        "path:."
+      ],
+      "requires": [
+        "nix"
+      ],
+      "timeout_seconds": 180,
+      "profiles": [
+        "full"
+      ]
+    }
+  ],
+  "watch_ignore": [
+    ".direnv",
+    ".test-runtime",
+    "result",
+    "result-*"
+  ]
+}

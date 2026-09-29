@@ -1,0 +1,2410 @@
+{
+  "diagnostics": {
+    "float": {
+      "border": "rounded"
+    },
+    "severity_sort": true,
+    "virtual_text": true
+  },
+  "enabledPlugins": [
+    "blink-cmp",
+    "bufferline",
+    "conform-nvim",
+    "diffview",
+    "flash",
+    "gitsigns",
+    "hardtime",
+    "lint",
+    "lsp",
+    "lualine",
+    "mini-ai",
+    "mini-move",
+    "neo-tree",
+    "noice",
+    "telescope",
+    "toggleterm",
+    "treesitter",
+    "treesitter-textobjects",
+    "trouble",
+    "web-devicons",
+    "which-key"
+  ],
+  "keymaps": [
+    {
+      "action": "<cmd>write<cr>",
+      "key": "<leader>w",
+      "mode": "n",
+      "options": {
+        "desc": "Save file"
+      }
+    },
+    {
+      "action": "<cmd>quit<cr>",
+      "key": "<leader>q",
+      "mode": "n",
+      "options": {
+        "desc": "Close window"
+      }
+    },
+    {
+      "action": "<cmd>nohlsearch<cr>",
+      "key": "<leader>h",
+      "mode": "n",
+      "options": {
+        "desc": "Clear search highlight"
+      }
+    },
+    {
+      "action": "<cmd>Neotree toggle<cr>",
+      "key": "-",
+      "mode": "n",
+      "options": {
+        "desc": "Toggle file tree"
+      }
+    },
+    {
+      "action": "<cmd>Neotree reveal<cr>",
+      "key": "<leader>bb",
+      "mode": "n",
+      "options": {
+        "desc": "Reveal file in tree"
+      }
+    },
+    {
+      "action": "<cmd>resize +2<cr>",
+      "key": "<C-Up>",
+      "mode": "n",
+      "options": {
+        "desc": "Increase window height"
+      }
+    },
+    {
+      "action": "<cmd>resize -2<cr>",
+      "key": "<C-Down>",
+      "mode": "n",
+      "options": {
+        "desc": "Decrease window height"
+      }
+    },
+    {
+      "action": "<cmd>vertical resize -2<cr>",
+      "key": "<C-Left>",
+      "mode": "n",
+      "options": {
+        "desc": "Decrease window width"
+      }
+    },
+    {
+      "action": "<cmd>vertical resize +2<cr>",
+      "key": "<C-Right>",
+      "mode": "n",
+      "options": {
+        "desc": "Increase window width"
+      }
+    },
+    {
+      "action": "<cmd>BufferLineCycleNext<cr>",
+      "key": "<Tab>",
+      "mode": "n",
+      "options": {
+        "desc": "Next buffer"
+      }
+    },
+    {
+      "action": "<cmd>BufferLineCyclePrev<cr>",
+      "key": "<S-Tab>",
+      "mode": "n",
+      "options": {
+        "desc": "Previous buffer"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('conform').format({ lsp_format = 'fallback' }) end"
+      },
+      "key": "<leader>cf",
+      "mode": "n",
+      "options": {
+        "desc": "Format buffer"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() vim.lsp.buf.rename() end"
+      },
+      "key": "<leader>cr",
+      "mode": "n",
+      "options": {
+        "desc": "Rename symbol"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('toggleterm').exec('lazygit') end"
+      },
+      "key": "<leader>gg",
+      "mode": "n",
+      "options": {
+        "desc": "Lazygit"
+      }
+    },
+    {
+      "action": "<cmd>DiffviewOpen<cr>",
+      "key": "<leader>gv",
+      "mode": "n",
+      "options": {
+        "desc": "Open diff view"
+      }
+    },
+    {
+      "action": "<cmd>DiffviewClose<cr>",
+      "key": "<leader>gC",
+      "mode": "n",
+      "options": {
+        "desc": "Close diff view"
+      }
+    },
+    {
+      "action": "<cmd>DiffviewFileHistory<cr>",
+      "key": "<leader>gh",
+      "mode": "n",
+      "options": {
+        "desc": "Git file history"
+      }
+    },
+    {
+      "action": "<cmd>Trouble diagnostics toggle<cr>",
+      "key": "<leader>xx",
+      "mode": "n",
+      "options": {
+        "desc": "Diagnostics"
+      }
+    },
+    {
+      "action": "<cmd>Trouble qflist toggle<cr>",
+      "key": "<leader>xq",
+      "mode": "n",
+      "options": {
+        "desc": "Quickfix"
+      }
+    },
+    {
+      "action": "<cmd>Trouble loclist toggle<cr>",
+      "key": "<leader>xl",
+      "mode": "n",
+      "options": {
+        "desc": "Location list"
+      }
+    },
+    {
+      "action": "<cmd>Trouble lsp_references toggle<cr>",
+      "key": "<leader>xr",
+      "mode": "n",
+      "options": {
+        "desc": "References"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text }) end"
+      },
+      "key": "<leader>xv",
+      "mode": "n",
+      "options": {
+        "desc": "Toggle inline diagnostics"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects') end"
+      },
+      "key": "am",
+      "mode": [
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Select function"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.select').select_textobject('@function.inner', 'textobjects') end"
+      },
+      "key": "im",
+      "mode": [
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Select inner function"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.select').select_textobject('@class.outer', 'textobjects') end"
+      },
+      "key": "ac",
+      "mode": [
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Select class"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.select').select_textobject('@class.inner', 'textobjects') end"
+      },
+      "key": "ic",
+      "mode": [
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Select inner class"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.move').goto_next_start('@function.outer', 'textobjects') end"
+      },
+      "key": "]m",
+      "mode": [
+        "n",
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Next function"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.move').goto_previous_start('@function.outer', 'textobjects') end"
+      },
+      "key": "[m",
+      "mode": [
+        "n",
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Previous function"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.swap').swap_next('@parameter.inner') end"
+      },
+      "key": "<leader>sn",
+      "mode": "n",
+      "options": {
+        "desc": "Swap next parameter"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('nvim-treesitter-textobjects.swap').swap_previous('@parameter.outer') end"
+      },
+      "key": "<leader>sp",
+      "mode": "n",
+      "options": {
+        "desc": "Swap previous parameter"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('flash').jump() end"
+      },
+      "key": "s",
+      "mode": [
+        "n",
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Flash jump"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('flash').treesitter() end"
+      },
+      "key": "S",
+      "mode": [
+        "n",
+        "x",
+        "o"
+      ],
+      "options": {
+        "desc": "Flash Tree-sitter"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('flash').remote() end"
+      },
+      "key": "r",
+      "mode": [
+        "o",
+        "x"
+      ],
+      "options": {
+        "desc": "Remote flash"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('flash').treesitter_search() end"
+      },
+      "key": "R",
+      "mode": [
+        "o",
+        "x"
+      ],
+      "options": {
+        "desc": "Tree-sitter search"
+      }
+    },
+    {
+      "action": {
+        "__raw": "function() require('flash').toggle() end"
+      },
+      "key": "<C-s>",
+      "mode": "c",
+      "options": {
+        "desc": "Toggle flash search"
+      }
+    },
+    {
+      "action": "<cmd>ToggleTerm direction=float<cr>",
+      "key": "<leader>tt",
+      "mode": "n",
+      "options": {
+        "desc": "Floating terminal"
+      }
+    },
+    {
+      "action": "<cmd>ToggleTerm direction=horizontal<cr>",
+      "key": "<leader>th",
+      "mode": "n",
+      "options": {
+        "desc": "Horizontal terminal"
+      }
+    },
+    {
+      "action": "<cmd>ToggleTerm direction=vertical<cr>",
+      "key": "<leader>tv",
+      "mode": "n",
+      "options": {
+        "desc": "Vertical terminal"
+      }
+    },
+    {
+      "action": "<C-\\><C-n>",
+      "key": "<Esc>",
+      "mode": "t",
+      "options": {
+        "desc": "Exit terminal mode"
+      }
+    },
+    {
+      "action": "<C-w>h",
+      "key": "<C-h>",
+      "mode": "n",
+      "options": {
+        "desc": "Navigate window"
+      }
+    },
+    {
+      "action": "<C-\\><C-n><C-w>h",
+      "key": "<C-h>",
+      "mode": "t",
+      "options": {
+        "desc": "Navigate from terminal"
+      }
+    },
+    {
+      "action": "<C-w>j",
+      "key": "<C-j>",
+      "mode": "n",
+      "options": {
+        "desc": "Navigate window"
+      }
+    },
+    {
+      "action": "<C-\\><C-n><C-w>j",
+      "key": "<C-j>",
+      "mode": "t",
+      "options": {
+        "desc": "Navigate from terminal"
+      }
+    },
+    {
+      "action": "<C-w>k",
+      "key": "<C-k>",
+      "mode": "n",
+      "options": {
+        "desc": "Navigate window"
+      }
+    },
+    {
+      "action": "<C-\\><C-n><C-w>k",
+      "key": "<C-k>",
+      "mode": "t",
+      "options": {
+        "desc": "Navigate from terminal"
+      }
+    },
+    {
+      "action": "<C-w>l",
+      "key": "<C-l>",
+      "mode": "n",
+      "options": {
+        "desc": "Navigate window"
+      }
+    },
+    {
+      "action": "<C-\\><C-n><C-w>l",
+      "key": "<C-l>",
+      "mode": "t",
+      "options": {
+        "desc": "Navigate from terminal"
+      }
+    }
+  ],
+  "leader": " ",
+  "lint": {
+    "autoCmd": {
+      "event": [
+        "BufEnter",
+        "BufWritePost",
+        "InsertLeave"
+      ]
+    },
+    "autoInstall": {
+      "enable": true
+    },
+    "enable": true,
+    "lintersByFt": {
+      "nix": [
+        "statix",
+        "deadnix"
+      ]
+    }
+  },
+  "lsp": {
+    "enable": true,
+    "keymaps": {
+      "lspBuf": {
+        "<C-s>": "signature_help",
+        "<leader>ca": "code_action",
+        "<leader>rn": "rename",
+        "K": "hover",
+        "gD": "declaration",
+        "gI": "implementation",
+        "gd": "definition",
+        "gr": "references"
+      }
+    },
+    "servers": {
+      "bashls": {
+        "enable": true
+      },
+      "clangd": {
+        "enable": true
+      },
+      "gopls": {
+        "enable": true,
+        "settings": {
+          "gopls": {
+            "hints": {
+              "assignVariableTypes": true,
+              "compositeLiteralFields": true,
+              "compositeLiteralTypes": true,
+              "constantValues": true,
+              "functionTypeParameters": true,
+              "parameterNames": true,
+              "rangeVariableTypes": true
+            }
+          }
+        }
+      },
+      "lua_ls": {
+        "enable": true,
+        "settings": {
+          "diagnostics": {
+            "globals": [
+              "vim"
+            ]
+          },
+          "runtime": {
+            "version": "LuaJIT"
+          },
+          "telemetry": {
+            "enable": false
+          },
+          "workspace": {
+            "checkThirdParty": false,
+            "library": {
+              "__raw": "{ vim.env.VIMRUNTIME }"
+            }
+          }
+        }
+      },
+      "nixd": {
+        "enable": true
+      },
+      "pyright": {
+        "enable": true
+      },
+      "rust_analyzer": {
+        "enable": true,
+        "extraOptions": {
+          "root_dir": {
+            "__raw": "function(bufnr, on_dir)\n  local root = vim.fs.root(bufnr, { 'Cargo.toml', 'rust-project.json' })\n    or vim.fs.root(bufnr, { '.git' })\n  if root then\n    on_dir(root)\n  end\nend\n"
+          }
+        },
+        "installCargo": false,
+        "installRustc": false
+      },
+      "ts_ls": {
+        "enable": true,
+        "extraOptions": {
+          "init_options": {
+            "preferences": {
+              "includeInlayEnumMemberValueHints": true,
+              "includeInlayFunctionLikeReturnTypeHints": true,
+              "includeInlayFunctionParameterTypeHints": true,
+              "includeInlayParameterNameHints": "all",
+              "includeInlayParameterNameHintsWhenArgumentMatchesName": true,
+              "includeInlayPropertyDeclarationTypeHints": true,
+              "includeInlayVariableTypeHints": true
+            }
+          }
+        }
+      },
+      "yamlls": {
+        "enable": true,
+        "settings": {
+          "schemaStore": {
+            "enable": true
+          }
+        }
+      }
+    }
+  },
+  "options": {
+    "breakindent": true,
+    "clipboard": "unnamedplus",
+    "confirm": true,
+    "cursorline": true,
+    "expandtab": true,
+    "ignorecase": true,
+    "inccommand": "split",
+    "linebreak": true,
+    "list": true,
+    "listchars": {
+      "nbsp": "␣",
+      "tab": "» ",
+      "trail": "·"
+    },
+    "mouse": "a",
+    "number": true,
+    "relativenumber": true,
+    "scrolloff": 8,
+    "shiftwidth": 2,
+    "showmode": false,
+    "signcolumn": "yes",
+    "smartcase": true,
+    "smartindent": true,
+    "splitbelow": true,
+    "splitright": true,
+    "tabstop": 2,
+    "termguicolors": true,
+    "timeoutlen": 300,
+    "undofile": true,
+    "updatetime": 250,
+    "wrap": true
+  },
+  "parsers": [
+    "nix",
+    "lua",
+    "bash",
+    "python",
+    "rust",
+    "c",
+    "cpp",
+    "go",
+    "javascript",
+    "typescript",
+    "tsx",
+    "json",
+    "yaml",
+    "toml",
+    "markdown",
+    "markdown_inline",
+    "vim",
+    "vimdoc",
+    "regex"
+  ],
+  "pluginSettings": {
+    "blink-cmp": {
+      "completion": {
+        "documentation": {
+          "auto_show": true
+        }
+      },
+      "keymap": {
+        "preset": "default"
+      }
+    },
+    "bufferline": {},
+    "conform-nvim": {
+      "format_on_save": {
+        "lsp_format": "fallback",
+        "timeout_ms": 1000
+      },
+      "formatters_by_ft": {
+        "bash": [
+          "shfmt"
+        ],
+        "css": [
+          "prettier"
+        ],
+        "html": [
+          "prettier"
+        ],
+        "javascript": [
+          "prettier"
+        ],
+        "javascriptreact": [
+          "prettier"
+        ],
+        "json": [
+          "prettier"
+        ],
+        "jsonc": [
+          "prettier"
+        ],
+        "lua": [
+          "stylua"
+        ],
+        "markdown": [
+          "prettier"
+        ],
+        "nix": [
+          "nixfmt"
+        ],
+        "python": [
+          "ruff_format"
+        ],
+        "rust": [
+          "rustfmt"
+        ],
+        "sh": [
+          "shfmt"
+        ],
+        "typescript": [
+          "prettier"
+        ],
+        "typescriptreact": [
+          "prettier"
+        ],
+        "yaml": [
+          "prettier"
+        ]
+      }
+    },
+    "diffview": {},
+    "flash": {
+      "labels": "asdfghjklqwertyuiopzxcvbnm",
+      "modes": {
+        "char": {
+          "jump_labels": true
+        }
+      }
+    },
+    "gitsigns": {
+      "on_attach": {
+        "__raw": "function(bufnr)\n  local gs = require('gitsigns')\n  local function map(key, action, desc)\n    vim.keymap.set('n', key, action, { buffer = bufnr, desc = desc })\n  end\n  map(']c', function() gs.nav_hunk('next') end, 'Next hunk')\n  map('[c', function() gs.nav_hunk('prev') end, 'Previous hunk')\n  map('<leader>gs', gs.stage_hunk, 'Stage hunk')\n  map('<leader>gr', gs.reset_hunk, 'Reset hunk')\n  map('<leader>gu', gs.undo_stage_hunk, 'Undo staged hunk')\n  map('<leader>gp', gs.preview_hunk_inline, 'Preview hunk')\n  map('<leader>gb', gs.blame_line, 'Blame line')\nend\n"
+      }
+    },
+    "hardtime": {
+      "disable_mouse": false,
+      "disabled_keys": {
+        "__raw": "{\n  [\"<Up>\"] = false,\n  [\"<Down>\"] = false,\n  [\"<Left>\"] = false,\n  [\"<Right>\"] = false,\n}\n"
+      },
+      "restriction_mode": "hint"
+    },
+    "lint": {},
+    "lsp": {},
+    "lualine": {},
+    "mini-ai": {
+      "n_line": 500,
+      "search_method": "cover_or_nearest",
+      "silent": true
+    },
+    "mini-move": {
+      "mappings": {
+        "down": "<M-j>",
+        "left": "<M-h>",
+        "line_down": "<M-j>",
+        "line_left": "<M-h>",
+        "line_right": "<M-l>",
+        "line_up": "<M-k>",
+        "right": "<M-l>",
+        "up": "<M-k>"
+      },
+      "options": {
+        "reindent_linewise": true
+      }
+    },
+    "neo-tree": {
+      "filesystem": {
+        "filtered_items": {
+          "hide_dotfiles": false
+        },
+        "follow_current_file": {
+          "enabled": true
+        },
+        "window": {
+          "mappings": {
+            "-": "none"
+          }
+        }
+      },
+      "window": {
+        "mappings": {
+          "<space>": "none"
+        },
+        "position": "current"
+      }
+    },
+    "noice": {
+      "cmdline": {
+        "view": "cmdline_popup"
+      }
+    },
+    "telescope": {
+      "defaults": {
+        "layout_config": {
+          "horizontal": {
+            "height": 0.95,
+            "preview_width": 0.65,
+            "width": 0.95
+          }
+        }
+      },
+      "pickers": {
+        "find_files": {
+          "find_command": [
+            "rg",
+            "--files",
+            "--color",
+            "never",
+            "--hidden",
+            "--glob=!.git"
+          ]
+        }
+      }
+    },
+    "toggleterm": {
+      "direction": "float"
+    },
+    "treesitter": {},
+    "treesitter-textobjects": {
+      "move": {
+        "set_jumps": true
+      },
+      "select": {
+        "lookahead": true
+      }
+    },
+    "trouble": {},
+    "web-devicons": {},
+    "which-key": {
+      "layout": {
+        "width": {
+          "min": 0.8
+        }
+      },
+      "plugins": {
+        "presets": {
+          "g": true,
+          "motions": true,
+          "nav": true,
+          "operators": true,
+          "text_objects": true,
+          "windows": true,
+          "z": true
+        }
+      },
+      "preset": "modern",
+      "spec": [
+        {
+          "__unkeyed-1": "<leader>c",
+          "group": "code"
+        },
+        {
+          "__unkeyed-1": "<leader>f",
+          "group": "find"
+        },
+        {
+          "__unkeyed-1": "<leader>g",
+          "group": "git"
+        },
+        {
+          "__unkeyed-1": "<leader>s",
+          "group": "swap"
+        },
+        {
+          "__unkeyed-1": "<leader>t",
+          "group": "terminal"
+        },
+        {
+          "__unkeyed-1": "<leader>x",
+          "group": "diagnostics"
+        }
+      ],
+      "win": {
+        "col": -1,
+        "height": {
+          "max": 0.7,
+          "min": 4
+        },
+        "padding": [
+          0,
+          1
+        ],
+        "row": -1,
+        "width": {
+          "max": 0.42,
+          "min": 30
+        }
+      }
+    }
+  },
+  "schemaVersion": 1,
+  "telescopeMappings": {
+    "<leader>fS": "lsp_workspace_symbols",
+    "<leader>fb": "buffers",
+    "<leader>fc": "commands",
+    "<leader>ff": "find_files",
+    "<leader>fg": "live_grep",
+    "<leader>fh": "help_tags",
+    "<leader>fk": "keymaps",
+    "<leader>fr": "resume",
+    "<leader>fs": "lsp_document_symbols",
+    "<leader>gB": "git_branches",
+    "<leader>gS": "git_status",
+    "<leader>gc": "git_commits",
+    "<leader>gf": "git_files",
+    "<leader>gx": "git_stash",
+    "<leader>xd": "diagnostics"
+  },
+  "theme": {
+    "dark": {
+      "@attribute": {
+        "fg": "{{accent}}"
+      },
+      "@boolean": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "@character": {
+        "fg": "{{info}}"
+      },
+      "@comment": {
+        "link": "Comment"
+      },
+      "@constant": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@constant.builtin": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "@constant.macro": {
+        "fg": "{{accent}}"
+      },
+      "@constructor": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@diff.delta": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@diff.minus": {
+        "fg": "{{terminalRed}}"
+      },
+      "@diff.plus": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@field": {
+        "fg": "{{accent}}"
+      },
+      "@function": {
+        "fg": "{{accent}}"
+      },
+      "@function.builtin": {
+        "fg": "{{accent}}"
+      },
+      "@function.call": {
+        "fg": "{{accent}}"
+      },
+      "@function.method": {
+        "fg": "{{accent}}"
+      },
+      "@function.method.call": {
+        "fg": "{{accent}}"
+      },
+      "@keyword": {
+        "fg": "{{info}}",
+        "italic": true
+      },
+      "@keyword.conditional": {
+        "fg": "{{info}}"
+      },
+      "@keyword.exception": {
+        "fg": "{{error}}"
+      },
+      "@keyword.function": {
+        "fg": "{{info}}"
+      },
+      "@keyword.import": {
+        "fg": "{{accent}}"
+      },
+      "@keyword.operator": {
+        "fg": "{{info}}"
+      },
+      "@keyword.repeat": {
+        "fg": "{{info}}"
+      },
+      "@keyword.return": {
+        "fg": "{{info}}",
+        "italic": true
+      },
+      "@markup.heading": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "@markup.heading.1": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "@markup.heading.2": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "@markup.heading.3": {
+        "bold": true,
+        "fg": "{{info}}"
+      },
+      "@markup.italic": {
+        "fg": "{{foreground}}",
+        "italic": true
+      },
+      "@markup.link": {
+        "fg": "{{info}}",
+        "underline": true
+      },
+      "@markup.link.label": {
+        "fg": "{{accent}}"
+      },
+      "@markup.link.url": {
+        "fg": "{{info}}",
+        "underline": true
+      },
+      "@markup.list": {
+        "fg": "{{accent}}"
+      },
+      "@markup.list.checked": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@markup.list.unchecked": {
+        "fg": "{{muted}}"
+      },
+      "@markup.quote": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "@markup.raw": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@markup.raw.block": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@markup.strikethrough": {
+        "fg": "{{muted}}",
+        "strikethrough": true
+      },
+      "@markup.strong": {
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "@module": {
+        "fg": "{{accent}}"
+      },
+      "@module.builtin": {
+        "fg": "{{accent}}",
+        "italic": true
+      },
+      "@number": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@number.float": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@operator": {
+        "fg": "{{info}}"
+      },
+      "@parameter": {
+        "fg": "{{accent}}"
+      },
+      "@property": {
+        "fg": "{{accent}}"
+      },
+      "@punctuation.bracket": {
+        "fg": "{{muted}}"
+      },
+      "@punctuation.delimiter": {
+        "fg": "{{muted}}"
+      },
+      "@punctuation.special": {
+        "fg": "{{accent}}"
+      },
+      "@string": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@string.documentation": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@string.escape": {
+        "fg": "{{info}}"
+      },
+      "@string.regexp": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@string.special": {
+        "fg": "{{info}}"
+      },
+      "@tag": {
+        "fg": "{{info}}"
+      },
+      "@tag.attribute": {
+        "fg": "{{accent}}"
+      },
+      "@tag.delimiter": {
+        "fg": "{{muted}}"
+      },
+      "@type": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@type.builtin": {
+        "fg": "{{terminalAmber}}",
+        "italic": true
+      },
+      "@type.definition": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@type.qualifier": {
+        "fg": "{{info}}"
+      },
+      "@variable": {
+        "fg": "{{foreground}}"
+      },
+      "@variable.builtin": {
+        "fg": "{{error}}",
+        "italic": true
+      },
+      "@variable.member": {
+        "fg": "{{accent}}"
+      },
+      "@variable.parameter": {
+        "fg": "{{accent}}"
+      },
+      "Boolean": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "Character": {
+        "fg": "{{info}}"
+      },
+      "ColorColumn": {
+        "bg": "{{surfaceVariant}}"
+      },
+      "Comment": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "Conditional": {
+        "fg": "{{info}}"
+      },
+      "Constant": {
+        "fg": "{{terminalAmber}}"
+      },
+      "CursorColumn": {
+        "bg": "{{surface}}"
+      },
+      "CursorLine": {
+        "bg": "{{surface}}"
+      },
+      "Define": {
+        "fg": "{{accent}}"
+      },
+      "DiagnosticError": {
+        "fg": "{{error}}"
+      },
+      "DiagnosticHint": {
+        "fg": "{{muted}}"
+      },
+      "DiagnosticInfo": {
+        "fg": "{{info}}"
+      },
+      "DiagnosticOk": {
+        "fg": "{{success}}"
+      },
+      "DiagnosticWarn": {
+        "fg": "{{warning}}"
+      },
+      "DiffAdd": {
+        "fg": "{{terminalGreen}}"
+      },
+      "DiffChange": {
+        "fg": "{{terminalAmber}}"
+      },
+      "DiffDelete": {
+        "fg": "{{terminalRed}}"
+      },
+      "Directory": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "Exception": {
+        "fg": "{{error}}"
+      },
+      "FlashBackdrop": {
+        "fg": "{{border}}"
+      },
+      "FlashCurrent": {
+        "bg": "{{accent}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "FlashCursor": {
+        "bg": "{{accent}}",
+        "fg": "{{background}}"
+      },
+      "FlashLabel": {
+        "bg": "{{warning}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "FlashMatch": {
+        "bg": "{{info}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "FloatBorder": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "Function": {
+        "fg": "{{accent}}"
+      },
+      "GitSignsAdd": {
+        "fg": "{{terminalGreen}}"
+      },
+      "GitSignsChange": {
+        "fg": "{{terminalAmber}}"
+      },
+      "GitSignsDelete": {
+        "fg": "{{terminalRed}}"
+      },
+      "HoverSummary": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{foreground}}"
+      },
+      "Identifier": {
+        "fg": "{{foreground}}"
+      },
+      "IncSearch": {
+        "bg": "{{error}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "Include": {
+        "fg": "{{info}}"
+      },
+      "Keyword": {
+        "fg": "{{info}}",
+        "italic": true
+      },
+      "Label": {
+        "fg": "{{accent}}"
+      },
+      "LspCodeLens": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{accent}}"
+      },
+      "LspCodeLensSeparator": {
+        "fg": "{{border}}"
+      },
+      "LspInfoBorder": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "LspInlayHint": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{warning}}"
+      },
+      "Macro": {
+        "fg": "{{accent}}"
+      },
+      "MiniIconsAzure": {
+        "fg": "{{info}}"
+      },
+      "MiniIconsBlue": {
+        "fg": "{{accent}}"
+      },
+      "MiniIconsCyan": {
+        "fg": "{{info}}"
+      },
+      "MiniIconsGreen": {
+        "fg": "{{terminalGreen}}"
+      },
+      "MiniIconsGrey": {
+        "fg": "{{muted}}"
+      },
+      "MiniIconsOrange": {
+        "fg": "{{terminalAmber}}"
+      },
+      "MiniIconsPurple": {
+        "fg": "{{accent}}"
+      },
+      "MiniIconsRed": {
+        "fg": "{{terminalRed}}"
+      },
+      "MiniIconsYellow": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeCursorLine": {
+        "bg": "{{surfaceSelected}}",
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeDimText": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeDirectoryIcon": {
+        "link": "Directory"
+      },
+      "NeoTreeDirectoryName": {
+        "link": "Directory"
+      },
+      "NeoTreeDotfile": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeExpander": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFadeText1": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFadeText2": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFileIcon": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFileName": {
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeFileNameOpened": {
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeFileStats": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFileStatsHeader": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "NeoTreeGitAdded": {
+        "fg": "{{terminalGreen}}"
+      },
+      "NeoTreeGitConflict": {
+        "bold": true,
+        "fg": "{{terminalRed}}"
+      },
+      "NeoTreeGitDeleted": {
+        "fg": "{{terminalRed}}"
+      },
+      "NeoTreeGitIgnored": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "NeoTreeGitModified": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeGitRenamed": {
+        "fg": "{{info}}"
+      },
+      "NeoTreeGitStaged": {
+        "fg": "{{terminalGreen}}"
+      },
+      "NeoTreeGitUnstaged": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeGitUntracked": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeHiddenByName": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeIgnored": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "NeoTreeIndentMarker": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeModified": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeNormal": {
+        "bg": "NONE",
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeNormalNC": {
+        "bg": "NONE",
+        "fg": "{{muted}}"
+      },
+      "NeoTreeRootName": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "NeoTreeSymbolicLinkTarget": {
+        "fg": "{{info}}"
+      },
+      "NeoTreeWinSeparator": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "Normal": {
+        "bg": "NONE"
+      },
+      "NormalFloat": {
+        "bg": "NONE"
+      },
+      "NormalNC": {
+        "bg": "NONE"
+      },
+      "NotifyBackground": {
+        "bg": "{{background}}"
+      },
+      "Number": {
+        "fg": "{{terminalAmber}}"
+      },
+      "Operator": {
+        "fg": "{{info}}"
+      },
+      "Pmenu": {
+        "bg": "{{surface}}",
+        "fg": "{{foreground}}"
+      },
+      "PmenuSbar": {
+        "bg": "{{surfaceVariant}}"
+      },
+      "PmenuSel": {
+        "bg": "{{foreground}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "PmenuThumb": {
+        "bg": "{{border}}"
+      },
+      "PreProc": {
+        "fg": "{{accent}}"
+      },
+      "Repeat": {
+        "fg": "{{info}}"
+      },
+      "Search": {
+        "bg": "{{warning}}",
+        "fg": "{{background}}"
+      },
+      "Special": {
+        "fg": "{{accent}}"
+      },
+      "Statement": {
+        "fg": "{{info}}"
+      },
+      "StatusLine": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{foreground}}"
+      },
+      "StatusLineNC": {
+        "bg": "{{surface}}",
+        "fg": "{{border}}"
+      },
+      "StorageClass": {
+        "fg": "{{terminalAmber}}"
+      },
+      "String": {
+        "fg": "{{terminalGreen}}"
+      },
+      "Structure": {
+        "fg": "{{terminalAmber}}"
+      },
+      "TabLine": {
+        "bg": "{{surface}}",
+        "fg": "{{muted}}"
+      },
+      "TabLineFill": {
+        "bg": "{{surface}}"
+      },
+      "TabLineSel": {
+        "bg": "{{foreground}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "TelescopeBorder": {
+        "bg": "{{surface}}",
+        "fg": "{{border}}"
+      },
+      "TelescopeSelection": {
+        "bg": "{{surfaceSelected}}",
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "TelescopeTitle": {
+        "bg": "{{surface}}",
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "Type": {
+        "fg": "{{terminalAmber}}"
+      },
+      "Typedef": {
+        "fg": "{{terminalAmber}}"
+      },
+      "Visual": {
+        "bg": "{{surfaceSelected}}",
+        "bold": true
+      },
+      "VisualNOS": {
+        "bg": "{{surfaceSelected}}",
+        "bold": true
+      },
+      "WhichKeyBorder": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "WhichKeyFloat": {
+        "bg": "NONE"
+      },
+      "WinSeparator": {
+        "fg": "{{border}}"
+      }
+    },
+    "light": {
+      "@attribute": {
+        "fg": "{{accent}}"
+      },
+      "@boolean": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "@character": {
+        "fg": "{{info}}"
+      },
+      "@comment": {
+        "link": "Comment"
+      },
+      "@constant": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@constant.builtin": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "@constant.macro": {
+        "fg": "{{accent}}"
+      },
+      "@constructor": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@diff.delta": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@diff.minus": {
+        "fg": "{{terminalRed}}"
+      },
+      "@diff.plus": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@field": {
+        "fg": "{{accent}}"
+      },
+      "@function": {
+        "fg": "{{accent}}"
+      },
+      "@function.builtin": {
+        "fg": "{{accent}}"
+      },
+      "@function.call": {
+        "fg": "{{accent}}"
+      },
+      "@function.method": {
+        "fg": "{{accent}}"
+      },
+      "@function.method.call": {
+        "fg": "{{accent}}"
+      },
+      "@keyword": {
+        "bold": true,
+        "fg": "{{info}}"
+      },
+      "@keyword.conditional": {
+        "fg": "{{info}}"
+      },
+      "@keyword.exception": {
+        "fg": "{{error}}"
+      },
+      "@keyword.function": {
+        "fg": "{{info}}"
+      },
+      "@keyword.import": {
+        "bold": true,
+        "fg": "{{info}}"
+      },
+      "@keyword.operator": {
+        "fg": "{{info}}"
+      },
+      "@keyword.repeat": {
+        "fg": "{{info}}"
+      },
+      "@keyword.return": {
+        "fg": "{{info}}",
+        "italic": true
+      },
+      "@lsp.typemod.variable.readonly": {
+        "bold": true,
+        "fg": "{{warning}}"
+      },
+      "@markup.heading": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "@markup.heading.1": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "@markup.heading.2": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "@markup.heading.3": {
+        "bold": true,
+        "fg": "{{info}}"
+      },
+      "@markup.italic": {
+        "fg": "{{foreground}}",
+        "italic": true
+      },
+      "@markup.link": {
+        "fg": "{{info}}",
+        "underline": true
+      },
+      "@markup.link.label": {
+        "fg": "{{accent}}"
+      },
+      "@markup.link.url": {
+        "fg": "{{info}}",
+        "underline": true
+      },
+      "@markup.list": {
+        "fg": "{{accent}}"
+      },
+      "@markup.list.checked": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@markup.list.unchecked": {
+        "fg": "{{muted}}"
+      },
+      "@markup.quote": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "@markup.raw": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@markup.raw.block": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@markup.strikethrough": {
+        "fg": "{{muted}}",
+        "strikethrough": true
+      },
+      "@markup.strong": {
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "@module": {
+        "fg": "{{accent}}"
+      },
+      "@module.builtin": {
+        "fg": "{{accent}}",
+        "italic": true
+      },
+      "@number": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@number.float": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@operator": {
+        "fg": "{{info}}"
+      },
+      "@parameter": {
+        "fg": "{{accent}}"
+      },
+      "@property": {
+        "fg": "{{accent}}"
+      },
+      "@punctuation.bracket": {
+        "fg": "{{muted}}"
+      },
+      "@punctuation.delimiter": {
+        "fg": "{{muted}}"
+      },
+      "@punctuation.special": {
+        "fg": "{{accent}}"
+      },
+      "@string": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@string.documentation": {
+        "fg": "{{terminalGreen}}"
+      },
+      "@string.escape": {
+        "fg": "{{info}}"
+      },
+      "@string.regexp": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@string.special": {
+        "fg": "{{info}}"
+      },
+      "@tag": {
+        "fg": "{{info}}"
+      },
+      "@tag.attribute": {
+        "fg": "{{accent}}"
+      },
+      "@tag.delimiter": {
+        "fg": "{{muted}}"
+      },
+      "@type": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@type.builtin": {
+        "fg": "{{terminalAmber}}",
+        "italic": true
+      },
+      "@type.definition": {
+        "fg": "{{terminalAmber}}"
+      },
+      "@type.qualifier": {
+        "fg": "{{info}}"
+      },
+      "@variable": {
+        "fg": "{{foreground}}"
+      },
+      "@variable.builtin": {
+        "fg": "{{error}}",
+        "italic": true
+      },
+      "@variable.member": {
+        "fg": "{{accent}}"
+      },
+      "@variable.parameter": {
+        "fg": "{{accent}}"
+      },
+      "Boolean": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "Character": {
+        "fg": "{{info}}"
+      },
+      "ColorColumn": {
+        "bg": "{{surfaceVariant}}"
+      },
+      "Comment": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "Conditional": {
+        "fg": "{{info}}"
+      },
+      "Constant": {
+        "fg": "{{terminalAmber}}"
+      },
+      "CursorColumn": {
+        "bg": "{{surface}}"
+      },
+      "CursorLine": {
+        "bg": "{{surface}}"
+      },
+      "CursorLineNr": {
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "Define": {
+        "fg": "{{accent}}"
+      },
+      "DiagnosticError": {
+        "fg": "{{error}}"
+      },
+      "DiagnosticHint": {
+        "fg": "{{muted}}"
+      },
+      "DiagnosticInfo": {
+        "fg": "{{info}}"
+      },
+      "DiagnosticOk": {
+        "fg": "{{success}}"
+      },
+      "DiagnosticWarn": {
+        "fg": "{{warning}}"
+      },
+      "DiffAdd": {
+        "fg": "{{terminalGreen}}"
+      },
+      "DiffChange": {
+        "fg": "{{terminalAmber}}"
+      },
+      "DiffDelete": {
+        "fg": "{{terminalRed}}"
+      },
+      "Directory": {
+        "bold": true,
+        "fg": "{{terminalAmber}}"
+      },
+      "Exception": {
+        "fg": "{{error}}"
+      },
+      "FlashBackdrop": {
+        "fg": "{{border}}"
+      },
+      "FlashCurrent": {
+        "bg": "{{accent}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "FlashCursor": {
+        "bg": "{{accent}}",
+        "fg": "{{background}}"
+      },
+      "FlashLabel": {
+        "bg": "{{warning}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "FlashMatch": {
+        "bg": "{{info}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "FloatBorder": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "Function": {
+        "fg": "{{accent}}"
+      },
+      "GitSignsAdd": {
+        "fg": "{{terminalGreen}}"
+      },
+      "GitSignsChange": {
+        "fg": "{{terminalAmber}}"
+      },
+      "GitSignsDelete": {
+        "fg": "{{terminalRed}}"
+      },
+      "HoverSummary": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{foreground}}"
+      },
+      "Identifier": {
+        "fg": "{{foreground}}"
+      },
+      "IncSearch": {
+        "bg": "{{error}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "Include": {
+        "bold": true,
+        "fg": "{{info}}"
+      },
+      "Keyword": {
+        "bold": true,
+        "fg": "{{info}}"
+      },
+      "Label": {
+        "fg": "{{accent}}"
+      },
+      "LineNr": {
+        "fg": "{{muted}}"
+      },
+      "LspCodeLens": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{accent}}"
+      },
+      "LspCodeLensSeparator": {
+        "fg": "{{border}}"
+      },
+      "LspInfoBorder": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "LspInlayHint": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{warning}}"
+      },
+      "Macro": {
+        "fg": "{{accent}}"
+      },
+      "MiniIconsAzure": {
+        "fg": "{{info}}"
+      },
+      "MiniIconsBlue": {
+        "fg": "{{accent}}"
+      },
+      "MiniIconsCyan": {
+        "fg": "{{info}}"
+      },
+      "MiniIconsGreen": {
+        "fg": "{{terminalGreen}}"
+      },
+      "MiniIconsGrey": {
+        "fg": "{{muted}}"
+      },
+      "MiniIconsOrange": {
+        "fg": "{{terminalAmber}}"
+      },
+      "MiniIconsPurple": {
+        "fg": "{{accent}}"
+      },
+      "MiniIconsRed": {
+        "fg": "{{terminalRed}}"
+      },
+      "MiniIconsYellow": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeCursorLine": {
+        "bg": "{{surfaceSelected}}",
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeDimText": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeDirectoryIcon": {
+        "link": "Directory"
+      },
+      "NeoTreeDirectoryName": {
+        "link": "Directory"
+      },
+      "NeoTreeDotfile": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeExpander": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFadeText1": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFadeText2": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFileIcon": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFileName": {
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeFileNameOpened": {
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeFileStats": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeFileStatsHeader": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "NeoTreeGitAdded": {
+        "fg": "{{terminalGreen}}"
+      },
+      "NeoTreeGitConflict": {
+        "bold": true,
+        "fg": "{{terminalRed}}"
+      },
+      "NeoTreeGitDeleted": {
+        "fg": "{{terminalRed}}"
+      },
+      "NeoTreeGitIgnored": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "NeoTreeGitModified": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeGitRenamed": {
+        "fg": "{{info}}"
+      },
+      "NeoTreeGitStaged": {
+        "fg": "{{terminalGreen}}"
+      },
+      "NeoTreeGitUnstaged": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeGitUntracked": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeHiddenByName": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeIgnored": {
+        "fg": "{{muted}}",
+        "italic": true
+      },
+      "NeoTreeIndentMarker": {
+        "fg": "{{muted}}"
+      },
+      "NeoTreeModified": {
+        "fg": "{{terminalAmber}}"
+      },
+      "NeoTreeNormal": {
+        "bg": "NONE",
+        "fg": "{{foreground}}"
+      },
+      "NeoTreeNormalNC": {
+        "bg": "NONE",
+        "fg": "{{muted}}"
+      },
+      "NeoTreeRootName": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "NeoTreeSymbolicLinkTarget": {
+        "fg": "{{info}}"
+      },
+      "NeoTreeWinSeparator": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "NonText": {
+        "fg": "{{muted}}"
+      },
+      "Normal": {
+        "bg": "NONE",
+        "fg": "{{foreground}}"
+      },
+      "NormalFloat": {
+        "bg": "NONE",
+        "fg": "{{foreground}}"
+      },
+      "NormalNC": {
+        "bg": "NONE",
+        "fg": "{{foreground}}"
+      },
+      "NotifyBackground": {
+        "bg": "{{background}}"
+      },
+      "Number": {
+        "fg": "{{terminalAmber}}"
+      },
+      "Operator": {
+        "fg": "{{info}}"
+      },
+      "Pmenu": {
+        "bg": "{{surface}}",
+        "fg": "{{foreground}}"
+      },
+      "PmenuSbar": {
+        "bg": "{{surfaceVariant}}"
+      },
+      "PmenuSel": {
+        "bg": "{{foreground}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "PmenuThumb": {
+        "bg": "{{border}}"
+      },
+      "PreProc": {
+        "fg": "{{accent}}"
+      },
+      "Repeat": {
+        "fg": "{{info}}"
+      },
+      "Search": {
+        "bg": "{{warning}}",
+        "fg": "{{background}}"
+      },
+      "Special": {
+        "fg": "{{accent}}"
+      },
+      "SpecialKey": {
+        "fg": "{{muted}}"
+      },
+      "Statement": {
+        "fg": "{{info}}"
+      },
+      "StatusLine": {
+        "bg": "{{surfaceVariant}}",
+        "fg": "{{foreground}}"
+      },
+      "StatusLineNC": {
+        "bg": "{{surface}}",
+        "fg": "{{border}}"
+      },
+      "StorageClass": {
+        "fg": "{{terminalAmber}}"
+      },
+      "String": {
+        "fg": "{{terminalGreen}}"
+      },
+      "Structure": {
+        "fg": "{{terminalAmber}}"
+      },
+      "TabLine": {
+        "bg": "{{surface}}",
+        "fg": "{{muted}}"
+      },
+      "TabLineFill": {
+        "bg": "{{surface}}"
+      },
+      "TabLineSel": {
+        "bg": "{{foreground}}",
+        "bold": true,
+        "fg": "{{background}}"
+      },
+      "TelescopeBorder": {
+        "bg": "{{surface}}",
+        "fg": "{{border}}"
+      },
+      "TelescopeSelection": {
+        "bg": "{{surfaceSelected}}",
+        "bold": true,
+        "fg": "{{foreground}}"
+      },
+      "TelescopeTitle": {
+        "bg": "{{surface}}",
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "Title": {
+        "bold": true,
+        "fg": "{{accent}}"
+      },
+      "Type": {
+        "fg": "{{terminalAmber}}"
+      },
+      "Typedef": {
+        "fg": "{{terminalAmber}}"
+      },
+      "Visual": {
+        "bg": "{{surfaceSelected}}",
+        "bold": true
+      },
+      "VisualNOS": {
+        "bg": "{{surfaceSelected}}",
+        "bold": true
+      },
+      "WhichKeyBorder": {
+        "bg": "NONE",
+        "fg": "{{border}}"
+      },
+      "WhichKeyFloat": {
+        "bg": "NONE"
+      },
+      "WinSeparator": {
+        "fg": "{{border}}"
+      }
+    },
+    "lualine": {
+      "command": {
+        "a": {
+          "bg": "{{warning}}",
+          "fg": "{{background}}",
+          "gui": "bold"
+        }
+      },
+      "inactive": {
+        "a": {
+          "bg": "{{surface}}",
+          "fg": "{{muted}}"
+        },
+        "b": {
+          "bg": "{{surface}}",
+          "fg": "{{muted}}"
+        },
+        "c": {
+          "bg": "{{surface}}",
+          "fg": "{{muted}}"
+        }
+      },
+      "insert": {
+        "a": {
+          "bg": "{{success}}",
+          "fg": "{{background}}",
+          "gui": "bold"
+        }
+      },
+      "normal": {
+        "a": {
+          "bg": "{{accent}}",
+          "fg": "{{background}}",
+          "gui": "bold"
+        },
+        "b": {
+          "bg": "{{surfaceVariant}}",
+          "fg": "{{foreground}}"
+        },
+        "c": {
+          "bg": "{{surface}}",
+          "fg": "{{foreground}}"
+        }
+      },
+      "replace": {
+        "a": {
+          "bg": "{{error}}",
+          "fg": "{{background}}",
+          "gui": "bold"
+        }
+      },
+      "visual": {
+        "a": {
+          "bg": "{{info}}",
+          "fg": "{{background}}",
+          "gui": "bold"
+        }
+      }
+    },
+    "palettes": {
+      "litecreep": {
+        "dark": {
+          "accent": "#ff1744",
+          "accentForeground": "#08080a",
+          "accentHover": "#ff4569",
+          "accentPressed": "#d90b35",
+          "background": "#08080a",
+          "border": "#48434a",
+          "error": "#ff1744",
+          "errorForeground": "#08080a",
+          "focusRing": "#ff4569",
+          "foreground": "#fff4d6",
+          "info": "#c8c3c7",
+          "muted": "#a6a1a3",
+          "selectionBackground": "#4a1423",
+          "selectionForeground": "#fff4d6",
+          "success": "#fff4d6",
+          "suggestion": "#827d83",
+          "surface": "#111114",
+          "surfaceHover": "#2c2c33",
+          "surfaceRaised": "#19191e",
+          "surfaceSelected": "#38131d",
+          "surfaceVariant": "#222228",
+          "terminalAmber": "#e6bc78",
+          "terminalGreen": "#9bcf91",
+          "terminalRed": "#f07b9a",
+          "warning": "#e6cfa8"
+        },
+        "light": {
+          "accent": "#ff1744",
+          "accentForeground": "#08080a",
+          "accentHover": "#ff4569",
+          "accentPressed": "#d90b35",
+          "background": "#fff4d6",
+          "border": "#827d83",
+          "error": "#ff1744",
+          "errorForeground": "#08080a",
+          "focusRing": "#d90b35",
+          "foreground": "#08080a",
+          "info": "#48434a",
+          "muted": "#625b60",
+          "selectionBackground": "#4a1423",
+          "selectionForeground": "#fff4d6",
+          "success": "#19191e",
+          "suggestion": "#746b71",
+          "surface": "#f6ebcd",
+          "surfaceHover": "#dbcdb0",
+          "surfaceRaised": "#eee2c5",
+          "surfaceSelected": "#f2c7c5",
+          "surfaceVariant": "#e6d9bc",
+          "terminalAmber": "#85551e",
+          "terminalGreen": "#326c37",
+          "terminalRed": "#ad3157",
+          "warning": "#78532e"
+        }
+      },
+      "memorycreep": {
+        "dark": {
+          "accent": "#D6F51A",
+          "accentForeground": "#080B09",
+          "accentHover": "#E5FF59",
+          "background": "#080B09",
+          "border": "#465C46",
+          "error": "#F08080",
+          "focusRing": "#D6F51A",
+          "foreground": "#EAF0E5",
+          "info": "#8ECBC0",
+          "muted": "#98AA96",
+          "secondary": "#35BE65",
+          "selectionBackground": "#284523",
+          "selectionForeground": "#EAF0E5",
+          "success": "#78D98C",
+          "suggestion": "#AFBEA4",
+          "surface": "#111813",
+          "surfaceHover": "#2D3E30",
+          "surfaceRaised": "#1A241C",
+          "surfaceSelected": "#284523",
+          "surfaceVariant": "#233027",
+          "terminalAmber": "#E5BE62",
+          "terminalGreen": "#78D98C",
+          "terminalRed": "#F08080",
+          "warning": "#E5BE62"
+        },
+        "light": {
+          "accent": "#527000",
+          "accentForeground": "#FFFFFF",
+          "accentHover": "#3D5800",
+          "background": "#F6FAF3",
+          "border": "#829D83",
+          "error": "#A83A3A",
+          "focusRing": "#527000",
+          "foreground": "#142117",
+          "info": "#26736D",
+          "muted": "#526B55",
+          "secondary": "#167C3A",
+          "selectionBackground": "#DDF2B4",
+          "selectionForeground": "#142117",
+          "success": "#237846",
+          "suggestion": "#5A735A",
+          "surface": "#FFFFFF",
+          "surfaceHover": "#D0E3CE",
+          "surfaceRaised": "#EAF2E7",
+          "surfaceSelected": "#DDF2B4",
+          "surfaceVariant": "#DEEBDD",
+          "terminalAmber": "#806016",
+          "terminalGreen": "#237846",
+          "terminalRed": "#A83A3A",
+          "warning": "#806016"
+        }
+      },
+      "portable": {
+        "dark": {
+          "accent": "#9482ad",
+          "background": "#0a0a0a",
+          "border": "#555555",
+          "error": "#b96f7d",
+          "foreground": "#e8e8e8",
+          "info": "#71979a",
+          "muted": "#8a8a8a",
+          "success": "#80977d",
+          "suggestion": "#9a9a9a",
+          "surface": "#161616",
+          "surfaceHover": "#303030",
+          "surfaceRaised": "#1e1e1e",
+          "surfaceSelected": "#383838",
+          "surfaceVariant": "#262626",
+          "terminalAmber": "#d8a657",
+          "terminalGreen": "#98c379",
+          "terminalRed": "#e06c75",
+          "warning": "#b59c6c"
+        },
+        "light": {
+          "accent": "#6200a3",
+          "background": "#f4f4f4",
+          "border": "#696969",
+          "error": "#94082c",
+          "foreground": "#151515",
+          "info": "#004090",
+          "muted": "#4b4b4b",
+          "success": "#005020",
+          "suggestion": "#555555",
+          "surface": "#e8e8e8",
+          "surfaceHover": "#cdcdcd",
+          "surfaceRaised": "#dfdfdf",
+          "surfaceSelected": "#c3c3c3",
+          "surfaceVariant": "#d6d6d6",
+          "terminalAmber": "#8f5700",
+          "terminalGreen": "#2e7d32",
+          "terminalRed": "#b3261e",
+          "warning": "#783000"
+        }
+      },
+      "tentaflake": {
+        "dark": {
+          "accent": "#388BFF",
+          "accentForeground": "#070B12",
+          "accentHover": "#65A7FF",
+          "background": "#070B12",
+          "border": "#425773",
+          "error": "#F08091",
+          "focusRing": "#8AB8FF",
+          "foreground": "#E6EFFC",
+          "info": "#7CCAFF",
+          "muted": "#91A2BA",
+          "secondary": "#8AB8FF",
+          "selectionBackground": "#173B68",
+          "selectionForeground": "#E6EFFC",
+          "success": "#74D6AF",
+          "suggestion": "#A6B8CF",
+          "surface": "#101722",
+          "surfaceHover": "#293B52",
+          "surfaceRaised": "#182232",
+          "surfaceSelected": "#173B68",
+          "surfaceVariant": "#202D40",
+          "terminalAmber": "#E5BE72",
+          "terminalGreen": "#74D6AF",
+          "terminalRed": "#F08091",
+          "warning": "#E5BE72"
+        },
+        "light": {
+          "accent": "#145CC5",
+          "accentForeground": "#FFFFFF",
+          "background": "#F3F7FC",
+          "border": "#8799B0",
+          "error": "#A83249",
+          "focusRing": "#145CC5",
+          "foreground": "#132238",
+          "info": "#2865A9",
+          "muted": "#4D627D",
+          "secondary": "#2865A9",
+          "selectionBackground": "#C9DDF8",
+          "selectionForeground": "#132238",
+          "success": "#176B56",
+          "suggestion": "#526780",
+          "surface": "#FFFFFF",
+          "surfaceHover": "#DCE9F8",
+          "surfaceRaised": "#EAF1FA",
+          "surfaceSelected": "#C9DDF8",
+          "surfaceVariant": "#DDE8F5",
+          "terminalAmber": "#875A11",
+          "terminalGreen": "#176B56",
+          "terminalRed": "#A83249",
+          "warning": "#805515"
+        }
+      }
+    }
+  }
+}
