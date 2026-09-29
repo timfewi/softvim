@@ -24,10 +24,9 @@ cloned on a fresh work laptop without files or state from the original laptop.
 - The Windows archive contains the complete portable configuration, installer,
   and README. PowerShell extracted it, compared every configuration file hash,
   and successfully installed the extracted copy into a temporary directory.
-- Source parity and diff checks passed; dotfiles remains unchanged. Native
-  Windows execution and live Mason downloads remain documented verification
-  limitations. The separately added Windows CI workflow and smoke scripts have
-  been preserved; their native CI run has not been claimed as verified.
+- Source parity and diff checks passed; dotfiles remains unchanged. Initial
+  local verification could not exercise native Windows or live Mason downloads;
+  the subsequent Windows CI results below supersede those limitations.
 - Added HTTPS clone, ZIP fallback, install/update instructions, portable Git
   line-ending rules, and exclusions for local settings and common secret files.
 - Added a fresh native Windows CI job covering PowerShell 5.1/7 installation,
@@ -36,6 +35,14 @@ cloned on a fresh work laptop without files or state from the original laptop.
   Gitleaks scans; PowerShell scripts parsed and the workflow passed actionlint.
   Final `nix develop path:. -c project-check fast --json` and `full --json`
   both passed, including real plugin interactions and the isolated Nix build.
-- Next: publish `timfewi/softvim`, verify anonymous cloning, and inspect the
-  native Windows CI run. Manual rendering/clipboard/terminal QA remains outside
-  the automated check scope.
+- Published `https://github.com/timfewi/softvim` with PUBLIC visibility. An
+  anonymous HTTPS clone, with Git credentials/config disabled, matched the
+  reviewed commit and passed the PowerShell installer tests from a clean
+  directory containing spaces.
+- Native Windows CI run `36639411703` passed on the published runtime code,
+  including PowerShell 5.1/7 installation, freshly downloaded locked plugins,
+  the FZF build, native Lua parser compilation, Mason StyLua installation,
+  file-tree interaction, formatting on save, and live Lua LSP diagnostics.
+  Evidence: https://github.com/timfewi/softvim/actions/runs/36639411703
+- All requested implementation and publication work is complete. Manual
+  rendering/clipboard/terminal QA remains outside the automated check scope.

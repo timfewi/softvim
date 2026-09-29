@@ -179,19 +179,18 @@ project-check full
 ```
 
 Fast checks cover formatting, lint, all source options and keymaps, every
-palette in both modes, async tool-install recovery, and PowerShell installation behavior. Full checks also
+palette in both modes, async tool-install recovery, and PowerShell installation
+behavior. Full checks also
 load the real locked plugins, exercise file-tree and save-time formatting
 interactions, and build the isolated Nix core check. Runtime checks use the
 ignored `.test-runtime/` directory and download dependencies on first use.
-The tests can run on Linux; native Windows rendering, clipboard, and terminal
-behavior require verification on Windows. A live Mason registry fetch failed
-at the GitHub API in this development environment; its failure and retry path
-is tested separately. The live language-server check uses the installed Lua
-server, rather than claiming that a blocked Mason download succeeded.
+The Linux live language-server check uses the Lua server from the pinned
+development toolchain. The fast tool-installer check also exercises registry
+failure, retry, unsupported platforms, and duplicate-install prevention.
 
 The GitHub Actions Windows job starts from a fresh checkout, tests the installer
 in both Windows PowerShell and PowerShell 7, loads the locked plugins, builds
-the native sorter and a Lua parser, and exercises the tree shortcut,
+the native sorter and a Lua parser, installs StyLua through Mason, and exercises the tree shortcut,
 format-on-save, and a live Lua language server. It uses isolated test
 directories, with no original dotfiles or Nix toolchain. Rendering, clipboard,
 and interactive terminal behavior still need a manual check on Windows.
