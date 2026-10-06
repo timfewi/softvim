@@ -10,3 +10,4 @@ nvim/lua/softvim/local.lua
 *.pem
 *.key
 *.log
+.ast-index/
